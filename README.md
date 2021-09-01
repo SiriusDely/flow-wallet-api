@@ -149,6 +149,16 @@ Configure Google KMS as the key storage for `flow-wallet-api` and set the necess
 | LocationID      | `FLOW_WALLET_GOOGLE_KMS_LOCATION_ID` | GCP Location ID  | -       | `europe-north1`, `us-west1` |
 | KeyRingID       | `FLOW_WALLET_GOOGLE_KMS_KEYRING_ID`  | GCP Key Ring ID  | -       | `example-wallet-keyring`    |
 
+### Google KMS for admin account
+
+If you want to use a key stored in Google KMS for the admin account, just pass the resource identifier as the private key (`FLOW_WALLET_ADMIN_PRIVATE_KEY`) and set `FLOW_WALLET_ADMIN_KEY_TYPE` to `google_kms`.
+
+Example environment:
+
+    FLOW_WALLET_ADMIN_ADDRESS=0x1234567890123456
+    FLOW_WALLET_ADMIN_PRIVATE_KEY=projects/<project_id>/locations/<location_id>/keyRings/<keyring_id>/cryptoKeys/<key_name>/cryptoKeyVersions/<version_number>
+    FLOW_WALLET_ADMIN_KEY_TYPE=google_kms
+
 ### All possible configuration variables
 
 Refer to [configs/configs.go](configs/configs.go) for details and documentation.
